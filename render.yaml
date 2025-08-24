@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: autorest-n8n
+    env: node
+    region: sao-paulo
+    plan: free
+    runtime: node18
+    buildCommand: npm install
+    startCommand: npm run start:render
+    envVars:
+      - key: N8N_HOST
+        value: autorest-n8n.onrender.com
+
+      - key: N8N_PORT
+        value: 443
+
+      - key: N8N_PROTOCOL
+        value: https
+
+      - key: N8N_EDITOR_BASE_URL
+        value: https://autorest-n8n.onrender.com
+
+      - key: NODE_ENV
+        value: production
+
+      - key: N8N_BASIC_AUTH_USER
+        value: autorest
+
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: AutoRest2025!
+
+      - key: DB_TYPE
+        value: sqlite
+
+    # Disco persistente (como o volume do Docker)
+    disk:
+      name: n8n-data
+      mountPath: /usr/src/app/.n8n
