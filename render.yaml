@@ -32,7 +32,6 @@ services:
       - key: DB_TYPE
         value: sqlite
 
-    # Disco persistente (como o volume do Docker)
     disk:
       name: n8n-data
       mountPath: /usr/src/app/.n8n
